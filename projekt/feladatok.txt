@@ -1,0 +1,39 @@
+1. (+0.5 jegy)
+Hozzon létre egy űrlapot, ahol szövegmezőn keresztül egy számozatlan felsoroláshoz (felhasználók) hozzá lehet adni egy új felhasználót.
+A számozatlan felsorolást (ul) html kódból is létrehozhatja, csak az elemeket (li) kell dinamikusan generálni.
+
+2. (+1 jegy)
+Hozzon létre egy CSS osztályt (lathatatlan), amelyik segítségével a számozatlan felsorolás egyes elemei elrejthetőek.
+Adjon hozzá egy checkbox mezőt, ahol lehetőség van listában az osztály segítségével csak e-mail címeket megjeleníteni.
+A checkbox értékének a változásakor fusson le egy eseménykezelő.
+Reguláris kifejezés segítségével döntse el, hogy egy elem tartalma e-mail cím-e.
+
+const re = /\S+@\S+\.\S+/;
+console.log(re.test('aaa'));
+console.log(re.test('aaa@bbb.hu'));
+
+3. (+1 jegy)
+Hozzon létre html kódban egy táblázatot (napló).
+A fejlécet is html kódban hozza létre.
+
+Hozzon létre egy naplóz függvényt:
+function naploz(esemeny) {
+	// ...
+}
+
+a függvény meghívásakor jelenjen meg az esemény időpontja és az esemény új sorként a táblázatban.
+Az időponthoz a new Date().toLocaleString() kifejezést használja.
+
+4. Hozzon létre egy ping checkboxot. (+1 jegy)
+Ha a ping checkbox be van pipálva, akkor 5 másodpercenként jelenjen meg egy ping üzenet a naplóban.
+A feladat megoldásához hozzon létre egy ping függvényt és egy startStop függvényt.
+
+5. CSS szabály segítségével formázza a táblázat minden sorának első celláját kék betűszínűre. (+0.5 jegy)
+Az egész tartalom kerüljön egy section elembe.
+Az elem legyen középre igazítva (margin: auto), legyen fehér háttere, és szürke kerete.
+
+800px felbontás alatt képernyőn és nyomtatási képnél legyen minden tulajdonság alapértelmezettre visszaállítva:
+
+margin: revert;
+border: revert;
+...

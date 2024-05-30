@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum</title>
+
+    <script>
+        function onSum() {
+            const lines = document.getElementById('numbers').value.trim().split('\n');
+
+            let sum = 0;
+
+            for (let line of lines) {
+                sum += parseInt(line);
+            }
+
+            document.getElementById('sum').innerText = sum + '';
+        }
+    </script>
+</head>
+<body>
+
+<p>
+    <label for="numbers">Numbers</label>
+    <br>
+    <textarea id="numbers" rows="10" cols="20"></textarea>
+</p>
+
+<p>
+    Sum: <span id="sum"></span>
+    <br>
+    <button type="button" onclick="onSum()">Sum</button>
+</p>
+
+</body>
+</html>

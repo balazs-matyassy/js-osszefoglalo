@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table (complex)</title>
+    <script src="weather.js"></script>
+
+    <style>
+        th, td {
+            border: 1px solid gray;
+        }
+    </style>
+
+    <script>
+        function renderTable() {
+            const table = document.createElement('table');
+            const thead = table.createTHead();
+
+            let tr = thead.insertRow(-1);
+
+            let th = document.createElement('th');
+            th.innerText = 'measurement_id';
+            tr.append(th);
+
+            th = document.createElement('th');
+            th.innerText = 'date';
+            tr.append(th);
+
+            th = document.createElement('th');
+            th.innerText = 'city';
+            tr.append(th);
+
+            th = document.createElement('th');
+            th.innerText = 'temperature';
+            tr.append(th);
+
+            const tbody = table.createTBody();
+
+            for (let measurement of measurements) {
+                tr = tbody.insertRow(-1);
+
+                let td = tr.insertCell(-1);
+                td.innerText = measurement.measurement_id;
+
+                td = tr.insertCell(-1);
+                td.innerText = measurement.date;
+
+                td = tr.insertCell(-1);
+                td.innerText = measurement.city;
+
+                td = tr.insertCell(-1);
+                td.innerText = measurement.temperature;
+            }
+
+            document.body.append(table);
+        }
+    </script>
+</head>
+<body>
+<script>
+    renderTable();
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document.createElement</title>
+
+    <script src="weather.js"></script>
+
+    <script>
+        function renderList() {
+            const ul = document.createElement('ul');
+
+            for (let measurement of measurements) {
+                const li = document.createElement('li');
+                li.innerText = `${measurement.measurement_id}: ${measurement.city}`;
+
+                ul.append(li);
+            }
+
+            document.body.append(ul);
+        }
+    </script>
+</head>
+<body>
+<h1>document.createElement</h1>
+
+<script>
+    renderList();
+</script>
+</body>
+</html>

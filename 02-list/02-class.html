@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document.createElement (class)</title>
+
+    <script src="weather.js"></script>
+
+    <style>
+        li.budapest {
+            color: blue;
+        }
+
+        li.debrecen {
+            color: yellow;
+        }
+
+        li.győr {
+            color: red;
+        }
+
+        li.szeged {
+            color: green;
+        }
+    </style>
+
+    <script>
+        function renderList() {
+            const ul = document.createElement('ul');
+
+            for (let measurement of measurements) {
+                const li = document.createElement('li');
+                li.innerText = `${measurement.measurement_id}: ${measurement.city}`;
+                li.classList.add(measurement.city.toLowerCase());
+
+                ul.append(li);
+            }
+
+            document.body.append(ul);
+        }
+    </script>
+</head>
+<body>
+<h1>document.createElement (class)</h1>
+
+<script>
+    renderList();
+</script>
+</body>
+</html>

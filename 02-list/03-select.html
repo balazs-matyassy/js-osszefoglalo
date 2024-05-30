@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select</title>
+
+    <script src="weather.js"></script>
+
+    <script>
+        function updateSelect() {
+            const cities = new Set();
+
+            for (let measurement of measurements) {
+                cities.add(measurement.city);
+            }
+
+            // ...: spread operátor
+            // [cities] = [Set(['Budapest', 'Győr', 'Debrecen'])]: 1 elemű tömb egy halmaz elemmel
+            // [...cities] = ['Budapest', 'Győr', 'Debrecen']: halmaz 3 elemét tartalmazó
+            const sortedCities = [...cities].sort();
+
+            const select = document.getElementById('city');
+
+            for (let city of sortedCities) {
+                const option = document.createElement('option');
+                option.text = city;
+                option.value = city.toLowerCase();
+
+                select.append(option);
+            }
+        }
+    </script>
+</head>
+<body>
+<label for="city">City</label>
+<select id="city">
+    <option>-</option>
+</select>
+
+<script>
+    updateSelect();
+</script>
+</body>
+</html>

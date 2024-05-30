@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timeout</title>
+
+    <script>
+        let timer = null;
+
+        function startStop() {
+            if (timer === null) {
+                timer = setTimeout(alarm, 3000);
+                document.getElementById('start_stop').innerText = 'STOP';
+            } else {
+                clearTimeout(timer);
+                timer = null;
+                document.getElementById('start_stop').innerText = 'START';
+            }
+        }
+
+        function alarm() {
+            timer = null;
+            document.getElementById('start_stop').innerText = 'START';
+
+            alert('ALARM!!!');
+        }
+    </script>
+</head>
+<body>
+<button id="start_stop" type="button" onclick="startStop()">START</button>
+</body>
+</html>

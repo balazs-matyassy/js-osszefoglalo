@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numbers</title>
+
+    <style>
+        .even {
+            color: blue;
+        }
+
+        .odd {
+            color: red;
+        }
+    </style>
+
+    <script>
+        function renderNumbers(count) {
+            const ul = document.createElement('ul');
+
+            for (let i = 1; i <= count; i++) {
+                const li = document.createElement('li');
+                li.innerText = i;
+
+                if (i % 2 === 0) {
+                    li.classList.add('even');
+                } else {
+                    li.classList.add('odd');
+                }
+
+                ul.append(li);
+            }
+
+            document.body.append(ul);
+        }
+    </script>
+</head>
+<body>
+<script>
+    const count = parseInt(prompt('Count: '));
+    renderNumbers(count);
+</script>
+</body>
+</html>

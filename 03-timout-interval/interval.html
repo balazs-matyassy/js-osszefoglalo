@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interval</title>
+
+    <script>
+        let timer = null;
+
+        function startStop() {
+            if (timer === null) {
+                timer = setInterval(count, 1000);
+                document.getElementById('start_stop').innerText = 'STOP';
+            } else {
+                clearInterval(timer);
+                timer = null;
+                document.getElementById('start_stop').innerText = 'START';
+            }
+        }
+
+        function count() {
+            document.getElementById('counter').innerText = parseInt(document.getElementById('counter').innerText) + 1;
+        }
+    </script>
+</head>
+<body>
+<button id="start_stop" type="button" onclick="startStop()">START</button>
+<span id="counter">0</span>
+</body>
+</html>

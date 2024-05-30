@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maximum temperature</title>
+
+    <!-- külső adatok betöltése -->
+    <script src="weather.js"></script>
+
+    <!-- eseménykezelők -->
+    <script>
+        function onCityChanged() {
+            // 1. bemenetek beolvasása
+            const city = document.getElementById('city').value;
+
+            // 2. adatok feldolgozása
+            let maximum = Number.MIN_VALUE;
+            let maximumId = null;
+
+            for (let measurement of measurements) {
+                if (city === '-' || measurement.city === city) {
+                    if (measurement.temperature > maximum) {
+                        maximum = measurement.temperature;
+                        maximumId = measurement.measurement_id;
+                    }
+                }
+            }
+
+            // 3. eredmény kiírása
+            document.getElementById('maximum').value = maximum;
+            document.getElementById('maximum_id').value = maximumId;
+        }
+    </script>
+</head>
+<body>
+<h1>Maximum temperature</h1>
+
+<table>
+    <tr>
+        <th>
+            <label for="city">City</label>
+        </th>
+        <td>
+            <select id="city" onchange="onCityChanged()">
+                <option>-</option>
+                <option>Budapest</option>
+                <option>Debrecen</option>
+                <option>Győr</option>
+                <option>Szeged</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <label for="maximum">Maximum temperature</label>
+        </th>
+        <td>
+            <input id="maximum" type="number" disabled>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <label for="maximum_id">Maximum temperature (measurement id)</label>
+        </th>
+        <td>
+            <input id="maximum_id" type="text" disabled>
+        </td>
+    </tr>
+</table>
+
+<script>
+    // oldal betöltésekor automatikusan frissüljenek az értékek
+    onCityChanged();
+</script>
+</body>
+</html>

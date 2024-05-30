@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document.createElement (hidden)</title>
+
+    <script src="weather.js"></script>
+
+    <style>
+        td {
+            vertical-align: text-top;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <script>
+        function renderList(e) {
+            const ul = document.createElement('ul');
+            ul.id = 'city-list';
+
+            for (let measurement of measurements) {
+                const li = document.createElement('li');
+                li.innerText = `${measurement.measurement_id}: ${measurement.city}`;
+                li.classList.add(measurement.city.toLowerCase());
+
+                ul.append(li);
+            }
+
+            e.after(ul);
+        }
+
+        function updateList() {
+            const city = document.getElementById('city').value.toLowerCase();
+            const lis = document.querySelectorAll('#city-list li');
+
+            for (let li of lis) {
+                if (city === '-' || li.classList.contains(city)) {
+                    li.classList.remove('hidden');
+                } else {
+                    li.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>document.createElement (hidden)</h1>
+
+<table>
+    <tr>
+        <td>
+            <h2 id="city-heading">Cities</h2>
+        </td>
+        <td>
+            <label for="city">City</label>
+            <select id="city" onchange="updateList()">
+                <option>-</option>
+                <option>Budapest</option>
+                <option>Debrecen</option>
+                <option>Győr</option>
+                <option>Szeged</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<script>
+    renderList(document.getElementById('city-heading'));
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EURHUF</title>
+
+    <script>
+        function convert() {
+            const eur = parseInt(document.getElementById('eur').value);
+            document.getElementById('huf').value = eur * 386;
+        }
+    </script>
+</head>
+<body>
+<div>
+    <label for="eur">EUR</label>
+    <input id="eur" type="number" min="0">
+</div>
+
+<div>
+    <label for="huf">HUF</label>
+    <input id="huf" type="number" disabled>
+</div>
+
+<div>
+    <button type="button" onclick="convert()">Convert</button>
+</div>
+</body>
+</html>
